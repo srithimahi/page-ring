@@ -1,4 +1,4 @@
-<svelte:options customElement="ysws-ring-overlay" />
+<svelte:options customElement="pagering-overlay" />
 
 <script lang="ts">
   import styles from "./styles.css?inline";
@@ -19,9 +19,9 @@
 
   // https://stackoverflow.com/a/79718503/22946386
   const container = $host();
-  const style = document.createElement("style");
-  style.textContent = styles;
-  container.shadowRoot?.appendChild(style);
+  const _style = document.createElement("style");
+  _style.textContent = styles;
+  container.shadowRoot?.appendChild(_style);
 
   let open = $state(true);
   let showDirectory = $state(false);

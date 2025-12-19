@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@source not "../index.html";
 
 @theme {
   --color-border: #441152;

@@ -5,25 +5,173 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>embed</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Platypi:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+    />
+
     <style>
       html,
       body {
-        margin: 0;
-        padding: 0;
-        height: 100%;
-        width: 100%;
-        overflow: hidden;
+        min-height: 100%;
       }
-      iframe {
-        height: 100%;
-        width: 100%;
-        border: none;
+      body {
+        background:
+          repeating-linear-gradient(
+            to right,
+            transparent 0px,
+            transparent 31px,
+            #e5e5e5 31px,
+            #e5e5e5 32px
+          ),
+          repeating-linear-gradient(
+            to bottom,
+            transparent 0px,
+            transparent 31px,
+            #e5e5e5 31px,
+            #e5e5e5 32px
+          ),
+          #f5f5f5;
+        background-attachment: fixed;
+      }
+      @media (prefers-color-scheme: dark) {
+        body {
+          background:
+            repeating-linear-gradient(
+              to right,
+              transparent 0px,
+              transparent 31px,
+              #222222 31px,
+              #222222 32px
+            ),
+            repeating-linear-gradient(
+              to bottom,
+              transparent 0px,
+              transparent 31px,
+              #222222 31px,
+              #222222 32px
+            ),
+            #121212;
+        }
+      }
+
+      .font-serif {
+        font-family: "Platypi", serif;
       }
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   </head>
   <body>
-    <iframe src="https://page.hackclub.com" frameborder="0"></iframe>
-    <ysws-ring-overlay />
+    <div class="h-full p-12">
+      <div
+        class="mx-auto max-w-4xl border border-neutral-300 bg-white p-8 shadow-md dark:border-neutral-700 dark:bg-neutral-800 dark:text-white"
+      >
+        <div
+          class="size-12 rounded-full bg-linear-to-br from-amber-400 to-yellow-600"
+        ></div>
+        <h1 class="mt-4 font-serif text-3xl font-bold tracking-tight">
+          This is a demo website
+        </h1>
+        <p class="mt-3 leading-relaxed text-neutral-600 dark:text-neutral-400">
+          This site is about a certain somebody called
+          <strong class="font-bold text-black dark:text-white"
+            >Joe Bloggs</strong
+          >. It's just here to test the webring embed component to make sure it
+          looks right and works properly. With any luck, it should look a little
+          like this:
+        </p>
+        <pagering-link class="mt-2"></pagering-link>
+        <p class="mt-2 leading-relaxed text-neutral-600 dark:text-neutral-400">
+          Try switching your system between light and dark mode to see how the
+          embed adjusts.
+        </p>
+
+        <h2 class="mt-8 font-serif text-2xl font-semibold tracking-tight">
+          About me
+        </h2>
+        <p class="mt-2 leading-relaxed text-neutral-600 dark:text-neutral-400">
+          Obviously Joe has a lot more to say about himself and his site, so
+          what follows is just filler text to make it look (somewhat) like a
+          real website.
+        </p>
+        <p class="mt-2 leading-relaxed text-neutral-600 dark:text-neutral-400">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget
+          justo sed mi laoreet consectetur sit amet eget urna. Morbi non odio
+          cursus, euismod lacus ac, volutpat diam. Nulla et ante a libero ornare
+          molestie. Nunc tristique orci ut elit elementum, ac venenatis dui
+          accumsan. Morbi quis velit convallis dui egestas luctus. Morbi nec
+          auctor lorem, nec mattis nisl. Vivamus a est nec nisi ornare rutrum
+          non at lectus. Duis non accumsan libero, vitae porttitor lectus.
+          Integer consectetur urna at augue faucibus, vel semper lorem molestie.
+          Cras suscipit id mauris nec elementum. Mauris tortor neque, faucibus
+          id erat sit amet, venenatis fringilla lacus.
+        </p>
+        <p class="mt-2 leading-relaxed text-neutral-600 dark:text-neutral-400">
+          Class aptent taciti sociosqu ad litora torquent per conubia nostra,
+          per inceptos himenaeos. Cras sed tortor sit amet nisi dictum venenatis
+          ac eget eros. Nulla facilisi. Morbi pellentesque leo eget felis
+          iaculis porttitor. Maecenas malesuada fermentum velit, non placerat
+          nisl vehicula quis. Nullam in consequat felis. Ut vel leo dolor. In
+          mattis, diam id tincidunt semper, eros nulla volutpat ipsum, et
+          fringilla nibh nisi sit amet tellus. Maecenas elementum vitae dui et
+          imperdiet. Praesent et semper lacus. Curabitur sed est in justo
+          sodales molestie. Nulla ultrices libero at ex luctus commodo. In porta
+          arcu id purus condimentum posuere. Duis euismod facilisis nisl a
+          facilisis.
+        </p>
+        <h2 class="mt-8 font-serif text-2xl font-semibold tracking-tight">
+          Projects
+        </h2>
+        <p class="mt-2 leading-relaxed text-neutral-600 dark:text-neutral-400">
+          Pellentesque risus neque, consectetur sed dui ac, tempor dignissim
+          lorem. Nullam hendrerit neque sapien. Phasellus eu felis at eros
+          faucibus mollis. Maecenas in mi bibendum, suscipit lectus at, cursus
+          felis. In hac habitasse platea dictumst. Cras vel dolor ut augue
+          consectetur ornare sed a diam. Pellentesque quis leo maximus nibh
+          faucibus commodo. Phasellus id dolor dictum tortor sagittis egestas
+          quis eget nisl. Ut enim nisi, sodales quis metus a, placerat posuere
+          orci. Pellentesque vulputate eu quam sit amet consectetur. Sed
+          porttitor non dolor sit amet consectetur. Donec efficitur sollicitudin
+          lacinia. Pellentesque risus nisi, rhoncus sit amet enim a, bibendum
+          fringilla diam. Lorem ipsum dolor sit amet, consectetur adipiscing
+          elit. Nullam pharetra erat at libero tincidunt gravida. Mauris sit
+          amet neque a tellus laoreet fringilla.
+        </p>
+        <p class="mt-2 leading-relaxed text-neutral-600 dark:text-neutral-400">
+          Morbi egestas erat sit amet turpis tempus placerat. Morbi sed ante
+          ultricies odio mollis sodales vel sed diam. Nulla diam leo, pulvinar
+          vitae urna eu, elementum tempus orci. Pellentesque ut malesuada odio,
+          ac rutrum ante. Praesent ligula mi, dictum eu turpis eget, ullamcorper
+          tempor mi. Aenean eu posuere massa, id ornare libero. Donec in
+          hendrerit sem, sed ultricies eros. Quisque accumsan tincidunt felis
+          vel tincidunt. Quisque ac dignissim enim. Ut ut urna tincidunt,
+          rhoncus erat facilisis, iaculis odio. Aenean sit amet ullamcorper
+          massa, sit amet elementum justo. Integer ac consectetur purus. Mauris
+          vel eros in enim dictum viverra sed vitae dolor.
+        </p>
+        <h2 class="mt-8 font-serif text-2xl font-semibold tracking-tight">
+          Contact me
+        </h2>
+        <p class="mt-2 leading-relaxed text-neutral-600 dark:text-neutral-400">
+          In maximus, nibh a accumsan pharetra, nibh orci elementum augue, sed
+          vestibulum ligula ligula sit amet nisl. Mauris at bibendum mi. Mauris
+          aliquet lorem ut eros commodo rhoncus. Duis justo lacus, accumsan eget
+          mollis eget, tincidunt ut nisi. Nunc ut laoreet erat. Ut scelerisque
+          purus ut ipsum iaculis, a accumsan risus finibus. Suspendisse commodo
+          ac lectus et pretium. Vestibulum sit amet faucibus sem, eget tempus
+          leo. Mauris ac mi turpis. Pellentesque convallis ipsum venenatis
+          volutpat consectetur. Praesent efficitur eu enim eu auctor. Nullam
+          dolor dui, pretium ac laoreet cursus, finibus in felis. Fusce pretium
+          nisl sit amet metus aliquam, nec accumsan diam venenatis. Maecenas
+          scelerisque, dolor semper rutrum dictum, arcu nulla lacinia lacus, in
+          consequat arcu libero sit amet elit. Fusce dui lectus, commodo vel
+          placerat at, maximus a enim. Sed vel ipsum eros.
+        </p>
+      </div>
+    </div>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
