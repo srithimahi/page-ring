@@ -51,3 +51,32 @@ export default function useEmbed() {
     },
   };
 }
+
+export async function getStatus() {
+  const res = await fetch(joinURL(API_BASE, "/embed/status"), {
+    headers: {
+      "Content-Type": "application/json",
+    },
+    credentials: "include",
+  });
+  if (!res.ok) {
+    throw new Error(`Failed to fetch /embed/status: ${res.status}`);
+  }
+
+  const data = await res.json();
+  return data as { enabled: boolean };
+}
+export async function setStatus({ enabled }: { enabled: boolean }) {
+  const res = await fetch(joinURL(API_BASE, "/embed/status"), {
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    method: "POST",
+    body: JSON.stringify({ enabled }),
+    credentials: "include",
+  });
+  if (!res.ok) {
+    throw new Error(`Failed to set /embed/status: ${res.status}`);
+  }
+}

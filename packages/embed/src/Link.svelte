@@ -7,6 +7,7 @@
   import flower1 from "./assets/flower1.svg";
   import { ArrowRightIcon } from "@lucide/svelte";
   import { onMount } from "svelte";
+  import { setStatus } from "./lib/api.svelte";
 
   // https://stackoverflow.com/a/79718503/22946386
   const container = $host();
@@ -50,6 +51,7 @@
     window.dispatchEvent(
       new CustomEvent("pagering:enable", { bubbles: true, composed: true }),
     );
+    setStatus({ enabled: true });
   }
 </script>
 

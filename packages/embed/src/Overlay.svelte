@@ -15,7 +15,7 @@
   import { fade, fly } from "svelte/transition";
   import { cubicOut } from "svelte/easing";
   import { RING_BASE } from "./lib/consts";
-  import useEmbed from "./lib/api.svelte";
+  import useEmbed, { getStatus, setStatus } from "./lib/api.svelte";
   import { onMount } from "svelte";
 
   // https://stackoverflow.com/a/79718503/22946386
@@ -32,7 +32,13 @@
   const data = $derived(embed.data);
 
   onMount(() => {
-    window.addEventListener("pagering:enable", () => {
+    getStatus().then((status) => {
+      if (status.enabled) {
+        enabled = true;
+      }
+    });
+
+    const enableHandler = () => {
       if (enabled) {
         open = true;
         showDirectory = true;
@@ -40,13 +46,20 @@
         open = true;
         enabled = true;
       }
-    });
+    };
+
+    window.addEventListener("pagering:enable", enableHandler);
+    return () => {
+      window.removeEventListener("pagering:enable", enableHandler);
+    };
   });
 
   function exitWebring() {
     open = true;
     showDirectory = false;
     enabled = false;
+
+    setStatus({ enabled: false });
   }
 </script>
 
