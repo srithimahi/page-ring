@@ -2,7 +2,6 @@
 import Layout from "./Layout.astro";
 import Intro from "~/components/Intro.astro";
 
-import { Image } from "astro:assets";
 import grass3 from "~/assets/grass3.svg";
 ---
 
@@ -14,8 +13,16 @@ import grass3 from "~/assets/grass3.svg";
     </div>
   </main>
 
-  <div class="aspect-1440/68 w-full"></div>
-  <div class="fixed inset-x-0 bottom-0 bg-linear-to-t from-white via-white/80">
-    <Image src={grass3} alt="" role="presentation" class="w-full" />
+  <div class="h-16 w-full"></div>
+  <div
+    class="fixed inset-x-0 bottom-0 h-16 bg-linear-to-t from-neutral-100 via-neutral-100/80 lg:h-20"
+  >
+    <div class="bg-grass h-full"></div>
   </div>
 </Layout>
+
+<style define:vars={{ "img-grass": `url(${grass3.src})` }}>
+  .bg-grass {
+    background: var(--img-grass) repeat-x bottom / auto 100%;
+  }
+</style>
